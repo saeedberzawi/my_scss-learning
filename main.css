@@ -1,0 +1,409 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  color: green;
+}
+
+.footer {
+  color: black;
+}
+
+.copy {
+  color: green;
+}
+
+.try {
+  color: red;
+}
+
+.catch {
+  color: red;
+  background: violet;
+}
+
+@media (max-width:575px) {
+  .sidebar {
+    padding: 20px;
+  }
+}
+.parent {
+  font-weight: bold;
+}
+.parent .child {
+  font-size: 20px;
+}
+.parent .child .grand-child {
+  font-size: 15px;
+}
+
+.parent-one,
+.parent-tow {
+  padding: 20px;
+}
+.parent-one .child,
+.parent-tow .child {
+  padding: 10px;
+}
+
+.parent > .child {
+  font-size: 20px;
+}
+.parent > .test {
+  font-weight: bold;
+}
+
+.parent-1 > .child {
+  font-size: 20px;
+}
+.parent-1 .test {
+  font-weight: bold;
+}
+
+.parent-2 > .child {
+  font-size: 20px;
+}
+.parent-2 > .test {
+  font-weight: bold;
+}
+.parent-2 .hoha {
+  font-size: 1px;
+}
+
+.box .title {
+  font-size: 10px;
+}
+.box.rad {
+  color: red;
+}
+.box:hover {
+  color: black;
+}
+.box:hover .title {
+  font-size: 2px;
+}
+:not(.box) {
+  font-weight: normal;
+}
+[dir=rtl] .box {
+  direction: rtl;
+}
+
+.max {
+  font-size: 15px;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 5px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.ads {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid white;
+}
+
+.ads {
+  color: red;
+}
+
+.page {
+  background-color: white;
+  color: black;
+}
+
+.has {
+  border-radius: 6px;
+}
+
+.ad-falcom {
+  font-size: 20px;
+  background-image: url("imgs/falcom.png");
+  left: 0;
+}
+
+/* this comment will not show in css file but not in compressed mode */
+/*! this comment will not show in css file and in compressed mode */
+/* this comment contains interpolation => falcom */
+ul.links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.circle-100 {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+.center-circle {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.class-1 {
+  font-size: 11px;
+}
+
+.class-2 {
+  font-size: 12px;
+}
+
+.class-3 {
+  font-size: 13px;
+}
+
+.circle-100 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.circle-200 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.circle-300 {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.red-theme .product {
+  background-color: white;
+  border-bottom: 2px solid red;
+}
+.red-theme .product .title {
+  color: red;
+  font-weight: bold;
+}
+
+.green-theme .product {
+  background-color: white;
+  border-bottom: 2px solid green;
+}
+.green-theme .product .title {
+  color: green;
+  font-weight: bold;
+}
+
+.blue-theme .product {
+  background-color: white;
+  border-bottom: 2px solid blue;
+}
+.blue-theme .product .title {
+  color: blue;
+  font-weight: bold;
+}
+
+.orange-theme .product {
+  background-color: white;
+  border-bottom: 2px solid orange;
+}
+.orange-theme .product .title {
+  color: orange;
+  font-weight: bold;
+}
+
+.facebook {
+  background-color: "blue";
+  color: white;
+}
+.facebook::before {
+  content: "facebook";
+}
+
+.youtube {
+  background-color: "red";
+  color: white;
+}
+.youtube::before {
+  content: "youtube";
+}
+
+.github {
+  background-color: "black";
+  color: white;
+}
+.github::before {
+  content: "github";
+}
+
+.one {
+  font-size: 20px;
+  background-color: red;
+  padding: 10px;
+}
+
+.two {
+  font-size: 15px;
+  background-color: green;
+  padding: 7.5px;
+}
+
+.three {
+  font-size: 22px;
+  background-color: blue;
+  padding: 11px;
+}
+
+.width-100 {
+  width: 100px;
+  height: 50px;
+}
+
+.width-200 {
+  width: 200px;
+  height: 100px;
+}
+
+.width-300 {
+  width: 300px;
+  height: 150px;
+}
+
+.col-1 {
+  width: 8.3333333333%;
+}
+
+.col-2 {
+  width: 16.6666666667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333333%;
+}
+
+.col-5 {
+  width: 41.6666666667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.3333333333%;
+}
+
+.col-8 {
+  width: 66.6666666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.3333333333%;
+}
+
+.col-11 {
+  width: 91.6666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.element {
+  width: 200px;
+  height: 100px;
+  top: 350px;
+}
+
+.black-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes up-to {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes up-to {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes up-bottom {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100px;
+  }
+}
+@keyframes up-bottom {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .media {
+    font-size: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .media {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .media {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .media {
+    font-size: 23px;
+  }
+}/*# sourceMappingURL=main.css.map */

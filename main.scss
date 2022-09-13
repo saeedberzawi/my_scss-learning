@@ -1,0 +1,353 @@
+@use "./sass/global-rules";
+
+// import variables
+@use "./sass/color" as *;
+
+// import mixin
+@use "./sass//helpers/mixins" as *;
+
+// import function
+@use "./sass/helpers/functions" as *;
+
+.header {
+  color: $alt_color;
+}
+.footer {
+  // color is black
+  $alt_color: black;
+  color: $alt_color;
+}
+.copy {
+  // color is green
+  color: $alt_color;
+}
+.try {
+  // !global it's mean any thing after him it will be red
+  $alt_color: red !global;
+  color: $alt_color;
+}
+.catch {
+  // color is red becuase in above is !global
+  color: $alt_color;
+  //   without import directlly
+  //   file name . variables name
+  background: global-rules.$khokha;
+}
+
+// media query white yellow
+
+$max_mobile: "max-width:575px";
+
+@media ($max_mobile) {
+  .sidebar {
+    padding: 20px;
+  }
+}
+
+// nesting and parent white yellow
+
+.parent {
+  font-weight: bold;
+  .child {
+    font-size: 20px;
+    .grand-child {
+      font-size: 15px;
+    }
+  }
+}
+
+// group
+.parent-one,
+.parent-tow {
+  padding: 20px;
+  .child {
+    padding: 10px;
+  }
+}
+
+// selector
+
+.parent > {
+  .child {
+    font-size: 20px;
+  }
+  .test {
+    font-weight: bold;
+  }
+}
+
+.parent-1 {
+  > .child {
+    font-size: 20px;
+  }
+  .test {
+    font-weight: bold;
+  }
+}
+
+.parent-2 {
+  > {
+    .child {
+      font-size: 20px;
+    }
+    .test {
+      font-weight: bold;
+    }
+  }
+  .hoha {
+    font-size: 1px;
+  }
+}
+
+.box {
+  .title {
+    font-size: 10px;
+  }
+  &.rad {
+    color: red;
+  }
+  &:hover {
+    color: black;
+  }
+  &:hover .title {
+    font-size: 2px;
+  }
+  //   every thing bold else the parent => :not(&)
+  :not(&) {
+    font-weight: normal;
+  }
+  //   page direction
+  [dir="rtl"] & {
+    direction: rtl;
+  }
+}
+
+// property declarations and placeholder white yellow
+
+.max {
+  font: {
+    size: 15px;
+    weight: bold;
+  }
+  padding: {
+    top: 4px;
+    right: 2px;
+    left: 2px;
+    bottom: 5px;
+  }
+  margin: auto {
+    top: 10px;
+    bottom: 15px;
+  }
+}
+
+// if main-box not a class for element and we need to handle with it
+// ad place holder => % and remove => .
+%main-box {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid white;
+}
+.ads {
+  @extend %main-box;
+  color: red;
+}
+
+// control flow => if and else
+
+$theme: "light";
+
+.page {
+  @if $theme == "light" {
+    background-color: white;
+    color: black;
+  } @else {
+    background-color: black;
+    color: white;
+  }
+}
+
+$rounded: true;
+
+.has {
+  // if rounded true => 6px
+  // else => null
+  border-radius: if($rounded, 6px, null);
+}
+
+// interpolation white yellow
+
+$company: "falcom";
+$position: "left";
+
+.ad-#{$company} {
+  font-size: 20px;
+  background-image: url("imgs/#{$company}.png");
+  #{$position}: 0;
+}
+
+// comments white yellow
+
+// this comment will not show in css file
+/* this comment will not show in css file but not in compressed mode */
+/*! this comment will not show in css file and in compressed mode */
+
+/* this comment contains interpolation => #{$company} */
+
+// mixin and include white yellow
+
+ul.links {
+  @include list-rest;
+}
+
+.circle-100 {
+  @include circle(100px);
+  background-color: white;
+}
+
+.center-circle {
+  @include circle(400px);
+  @include centering;
+}
+
+// loop => for white yellow
+
+// from 1 to 10
+// 1 => 9
+// from 1 through 10
+// 1 => 10
+
+@for $i from 1 through 3 {
+  .class-#{$i} {
+    font-size: #{$i + 10px};
+  }
+}
+
+$dimensions: 0;
+
+@for $i from 1 through 3 {
+  .circle-#{100 + $dimensions} {
+    width: $dimensions + 100px;
+    height: $dimensions + 100px;
+    border-radius: 50%;
+  }
+  $dimensions: $dimensions + 100;
+}
+
+// loop => each and maps white yellow
+
+$theme: red, green, blue, orange;
+
+@each $theme in $theme {
+  .#{$theme}-theme {
+    .product {
+      background-color: white;
+      border-bottom: 2px solid $theme;
+      .title {
+        color: $theme;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+$socials: (
+  "facebook": "blue",
+  "youtube": "red",
+  "github": "black",
+);
+
+@each $name, $color in $socials {
+  .#{$name} {
+    background-color: $color;
+    color: white;
+    &::before {
+      content: $name;
+    }
+  }
+}
+
+$classes: "one" 20px red, "two" 15px green, "three" 22px blue;
+
+@each $class, $font, $color in $classes {
+  .#{$class} {
+    font-size: $font;
+    background-color: $color;
+    padding: $font / 2;
+  }
+}
+
+// loop => while white yellow
+
+$start: 1;
+
+@while $start <= 3 {
+  .width-#{$start * 100} {
+    width: $start * 100px;
+    height: ($start * 100px)/2;
+  }
+  $start: $start + 1;
+}
+
+// create grid system white yellow
+
+$grid_cols: 12;
+
+@for $i from 1 through $grid_cols {
+  .col-#{$i} {
+    width: percentage($i / $grid_cols);
+  }
+}
+
+// function  white yellow
+
+$width: 200px;
+
+.element {
+  width: $width;
+  height: half($width);
+  top: calculate(100px, 200px, 50px);
+}
+
+// mixin with content  white yellow
+
+.black-overlay {
+  @include overlay(black, 0.5);
+}
+
+@include keyf(fade-in);
+
+@include keyforma(up-to) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@include keyforma(up-bottom) {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100px;
+  }
+}
+
+// if condition + mixin + content
+
+.media {
+  @include breakpoints(mobile) {
+    font-size: 15px;
+  }
+  @include breakpoints(small) {
+    font-size: 18px;
+  }
+  @include breakpoints(medium) {
+    font-size: 20px;
+  }
+  @include breakpoints(large) {
+    font-size: 23px;
+  }
+}

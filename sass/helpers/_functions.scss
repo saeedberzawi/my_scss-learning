@@ -1,0 +1,18 @@
+/// function to get element height
+///
+/// @param {size}
+/// element width
+/// @return {int}
+/// return element height => width / 2
+
+@function half($size) {
+  @return $size / 2;
+}
+
+@function calculate($sizes...) {
+  $total: 0;
+  @each $size in $sizes {
+    $total: $total + $size;
+  }
+  @return $total;
+}
